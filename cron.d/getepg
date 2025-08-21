@@ -1,0 +1,4 @@
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+29 */2 * * *   www	/home/tos/public_html/epgrec/getepg.php

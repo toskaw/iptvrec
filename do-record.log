@@ -1,0 +1,19 @@
+################################################################
+Generated using public Comskip 0.81.063
+Time at start of run:
+Sun Mar 15 22:33:20 2015
+################################################################
+
+Detection Methods to be used:
+	1) Black Frame
+	2) Logo - Give up after 2000 seconds
+	3) Scene Change
+	4) Resolution Change
+	5) Closed Captions
+	6) Aspect Ratio
+	7) Silence
+	8) CutScenes
+
+
+ComSkip throttles back from -0001 to -0001.
+The time is now 2233 so it's full speed ahead!
