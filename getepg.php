@@ -18,7 +18,6 @@ $re = '/#EXTINF:(.+?)[,]\s?(.+?)[\r\n]+?(?:#.+[\r\n])*((?:https?|rtmp):\/\/(?:\S
 $attributes = '/([a-zA-Z0-9\-]+?)="([^"]*)"/';
 
 preg_match_all($re, $playlist, $matches);
-var_dump($matches);
 
 $i = 1;
 
