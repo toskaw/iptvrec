@@ -11,7 +11,7 @@ define( "RESERVE_STRUCT",
 	"type varchar(8) not null default 'GR',".						// 種別（GR/BS/CS）
 	"channel varchar(512) not null default '0',".					// チャンネル
 	"title varchar(512) not null default 'none',".					// タイトル
-	"description varchar(512) not null default 'none',".			// 説明 text->varchar
+	"description varchar(1024) not null default 'none',".			// 説明 text->varchar
 	"category_id integer not null default '0',".					// カテゴリID
 	"starttime datetime not null default '1970-01-01 00:00:00',".	// 開始時刻
 	"endtime datetime not null default '1970-01-01 00:00:00',".		// 終了時刻
@@ -36,7 +36,7 @@ define( "PROGRAM_STRUCT",
 	"type varchar(8) not null default 'GR',".						// 種別（GR/BS/CS）
 	"channel varchar(512) not null default '0',".					// チャンネル
 	"title varchar(512) not null default 'none',".					// タイトル
-	"description varchar(512) not null default 'none',".			// 説明 text->varchar
+	"description varchar(1024) not null default 'none',".			// 説明 text->varchar
 	"category_id integer not null default '0',".					// カテゴリID
 	"starttime datetime not null default '1970-01-01 00:00:00',".	// 開始時刻
 	"endtime datetime not null default '1970-01-01 00:00:00',".		// 終了時刻

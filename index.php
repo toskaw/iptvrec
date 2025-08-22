@@ -35,6 +35,7 @@ if( isset( $_GET['length']) ) $program_length = (int) $_GET['length'];
 $type = $types_ch[0];
 if( isset( $_GET['type'] ) ) $type = $_GET['type'];
 // 現在の時間
+date_default_timezone_set('Asia/Tokyo');
 $top_time = mktime( date("H"), 0 , 0 );
 if( isset( $_GET['time'] ) ) {
 	if( sscanf( $_GET['time'] , "%04d%2d%2d%2d", $y, $mon, $day, $h ) == 4 ) {

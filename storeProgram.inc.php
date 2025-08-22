@@ -93,8 +93,15 @@ function storeProgram( $xmlfile ) {
 		if( $channel_rec == null ) continue;	// あり得ないことが起きた
 		if( $channel_rec->skip == 1 ) continue;	// 受信しないチャンネル
 		
-		$starttime = str_replace(" +0900", '', $program['start'] );
-		$endtime = str_replace( " +0900", '', $program['stop'] );
+		//$starttime = str_replace(" +0900", '', $program['start'] );
+		//$endtime = str_replace( " +0900", '', $program['stop'] );
+        $start = new DateTime($program['start']);
+        $start->setTimezone(new DateTimeZone("Asia/Tokyo"));
+        $starttime = $start->format("YmdHis");
+		$end = new DateTime($program['stop']);
+        $end->setTimezone(new DateTimeZone("Asia/Tokyo"));
+        $endtime = $end->format("YmdHis");
+
                 $event_id = $program['id'];
 		$title = $program->title;
 		$desc = $program->desc;
