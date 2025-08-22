@@ -114,6 +114,7 @@
       <input id=url-input placeholder="Enter M3U8 Playlist URL">
       <input id=file-input style=display:none type=file>
       <button id=upload-button onclick='document.getElementById("file-input").click()'>
+	↑
       </button>
     </div>
     <button id=fetch-button>
@@ -173,10 +174,12 @@ document.addEventListener('DOMContentLoaded',()=>{
     var player=new shaka.Player(videoElement);
     var channels;
     var lastActiveChannel;
-    shaka.polyfill.installAll();
+      shaka.polyfill.installAll();
+      /*
     document.getElementById('upload-button').remove();
     document.getElementById('url-input').remove();
-    document.getElementById('fetch-button').remove();
+      document.getElementById('fetch-button').remove();
+      */
     if (proxy) {
     // cors proxy
 player.getNetworkingEngine().registerRequestFilter(function(type, request, context) {
@@ -191,9 +194,11 @@ response.uri = original.substr(original.indexOf("orig=") + 5);
 });
     }
     const m3u8Link='./ch.m3u';
-    setPlaylistFromUrl(m3u8Link);
     var file = window.location.search;
     file = file.substr(file.indexOf("file=")+5);
+    if (file == m3u8Link) {
+        setPlaylistFromUrl(m3u8Link);
+    }
     if (file) {
     	 player.load(file);
 	 videoElement.play()
