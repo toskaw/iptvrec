@@ -34,7 +34,8 @@ m3uは自分で探してください
 チャンネル動画の配信サーバーがCORS対応していない場合は、ブラウザで視聴できません。
 一応、cors proxyは用意してあるので、自己責任で。
 
-```webapp.html
+webapp.html
+```javascript:webapp.html
 const proxy=true;
 ```
 
