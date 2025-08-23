@@ -41,5 +41,5 @@ const proxy=true;
 
 ## 参考にしたもの
 - [epgrec3](https://www.mda.or.jp/epgrec/)
-- [html-iptv-player] (https://github.com/dbghelp/html-iptv-player)
+- [html-iptv-player](https://github.com/dbghelp/html-iptv-player)
 - [php-cross-domain-proxy](https://github.com/softius/php-cross-domain-proxy)
