@@ -35,10 +35,12 @@ function doKeywordReservation() {
 
 function storeProgram( $xmlfile ) {
     $map = [];
+    $types = [];
     $rec = new DBRecord(CHANNEL_TBL);
     $channels = $rec->fetch_array("skip", "0");
     foreach($channels as $ch) {
         $map[$ch["channel_disc"]] = $ch["channel"];
+        $types[$ch["channel_disc"]] = $ch["type"];
     }
     $epg = file_get_contents($xmlfile);
     file_put_contents(EPG_XML, $epg);
@@ -167,7 +169,7 @@ function storeProgram( $xmlfile ) {
 
 				$rec->channel_disc = strval($channel_disc);
 				$rec->channel_id = $channel_rec->id;
-				//$rec->type = ;
+				$rec->type = $types[$channel_disc];
 				$rec->channel = $channel_rec->channel;
 				$rec->title = strval($title);
 				$rec->description = strval($desc);
