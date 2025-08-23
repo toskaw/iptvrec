@@ -14,7 +14,7 @@ $settings = Settings::factory();
 
 $playlist = file_get_contents($settings->m3u_url);
 
-$re = '/#EXTINF:(.+?)[,]\s?(.+?)[\r\n]+?((?:https?|rtmp):\/\/(?:\S*?\.\S*?)(?:[\s)\[\]{};"\'<]|\.\s|$))/';
+$re = '/#EXTINF:(.+?)[,]\s?(.+?)[\r\n]+?(?:#.+[\r\n])*((?:https?|rtmp):\/\/(?:\S*?\.\S*?)(?:[\s)\[\]{};"\'<]|\.\s|$))/';
 $attributes = '/([a-zA-Z0-9\-]+?)="([^"]*)"/';
 
 preg_match_all($re, $playlist, $matches);

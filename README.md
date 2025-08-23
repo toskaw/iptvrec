@@ -4,6 +4,13 @@ epgrecをもとにm3uファイルを読み込んで動作する録画システ�
 ブラウザで録画ファイル,ライブストリームを視聴できるように改造しています。
 m3uは自分で探してください
 
+<<<<<<< HEAD
+=======
+## スクリーンショット
+![番組表](imgs/table.png)
+![視聴](imgs/view.png)
+
+>>>>>>> refs/remotes/origin/main
 ## 必要なもの
 - PHPが動作するWebサーバー環境
 - mysqlなどのDB
@@ -30,15 +37,13 @@ m3uは自分で探してください
 チャンネル動画の配信サーバーがCORS対応していない場合は、ブラウザで視聴できません。
 一応、cors proxyは用意してあるので、自己責任で。
 
-```webapp.html
+webapp.html
+```javascript:webapp.html
 const proxy=true;
 ```
 
-## スクリーンショット
-![番組表](imgs/table.jpeg)
-![視聴](imgs/view.jpeg)
 
 ## 参考にしたもの
 - [epgrec3](https://www.mda.or.jp/epgrec/)
-- [html-iptv-player] (https://github.com/dbghelp/html-iptv-player)
+- [html-iptv-player](https://github.com/dbghelp/html-iptv-player)
 - [php-cross-domain-proxy](https://github.com/softius/php-cross-domain-proxy)

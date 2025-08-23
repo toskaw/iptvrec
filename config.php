@@ -40,12 +40,12 @@ $RECORD_MODE = array(
 	// ※ 0は必須で、変更不可です。
 	0 => array(
 		'name' => 'Full TS',	// モードの表示名
-		'suffix' => '.ts',	// ファイル名のサフィックス
+		'suffix' => '.mp4',	// ファイル名のサフィックス
 	),
 	
 	1 => array(
 		'name' => 'Minimum TS',	// 最小のTS
-		'suffix' => '_tss.ts',	// do-record.shのカスタマイズが必要
+		'suffix' => '_tss.mp4',	// do-record.shのカスタマイズが必要
 	),
 	
 	/* Example is as follows.
@@ -76,10 +76,6 @@ define( "DO_RECORD", INSTALL_PATH . "/do-record.sh" );		// レコードスクリ
 define( "COMPLETE_CMD", INSTALL_PATH . "/recomplete.php" );	// 録画終了コマンド
 define( "GEN_THUMBNAIL", INSTALL_PATH . "/gen-thumbnail.sh" );	// サムネール生成スクリプト
 
-// IPTV
-define( "PLAYLIST_M3U", "ch.m3u" );
-define( "EPG_XML", "guide.xml" );
-
 // BS/CSでEPGを取得するチャンネル
 // 通常は変える必要はありません
 // BSでepgdumpが頻繁に落ちる場合は、受信状態のいいチャンネルに変えることで
@@ -89,6 +85,9 @@ define( "BS_EPG_CHANNEL",  "211"  );	// BS
 define( "CS1_EPG_CHANNEL", "CS8"  );	// CS1
 define( "CS2_EPG_CHANNEL", "CS24" );	// CS2
 
+// IPTV
+define( "PLAYLIST_M3U", "ch.m3u" );
+define( "EPG_XML", "guide.xml" );
 
 // 地上デジタルチャンネルテーブルsettings/gr_channel.phpが存在するならそれを
 // 優先する

@@ -1,0 +1,16 @@
+#!/usr/local/bin/bash
+#echo "CHANNEL : $CHANNEL"
+#echo "DURATION: $DURATION"
+#echo "OUTPUT  : $OUTPUT"
+#echo "TUNER : $TUNER"
+#echo "TYPE : $TYPE"
+#echo "MODE : $MODE"
+RECORDER=/usr/local/bin/streamlink
+TMP=${CHANNEL%/*}
+CH=${TMP##*/}
+echo ${URL}
+sleep 60
+URL=https://abema.tv/now-on-air/${CH}
+$RECORDER --default-stream best ${URL} -o ${OUTPUT} --hls-duration ${DURATION} > /dev/null 
+
+

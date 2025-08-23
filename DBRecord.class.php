@@ -144,7 +144,11 @@ class DBRecord {
 				}
 				$sqlstr = rtrim($sqlstr, ',' );
 				$sqlstr .= " WHERE id = '".$this->__id."'";
-				$res = $this->__query($sqlstr);
+                try {
+                    $res = $this->__query($sqlstr);
+                } catch(Exception $e) {
+                    $res=true;
+                }
 				if( $res === false ){
 					if( !$dest_flag )		// 'デストラクタの中から (スクリプトの終了処理時に) 例外をスローしようとすると、致命的なエラーを引き起こします。'らしい
 						throw new exception( 'close: アップデート失敗' );
