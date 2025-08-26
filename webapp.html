@@ -37,9 +37,16 @@
     }
     #playlist{
 	width:100%;
+	padding:0px;
     }
     #video-container {
 	height:  auto;
+    }
+    .pinned-channel-box{
+	width: 80px;
+    }
+    .channelBoxName{
+	display:none;
     }
 }
 
@@ -119,6 +126,9 @@
     </div>
     <button id=fetch-button>
       Load Playlist
+    </button>
+    <button id=epg-button onclick=openEPG()>
+      EPG
     </button>
     <input id=search-input placeholder=Search...>
     <ul id=video-list>
@@ -252,6 +262,9 @@ response.uri = original.substr(original.indexOf("orig=") + 5);
 	     {
 		 xmlepg.displayAllPrograms('epg-container','xmlepg');
 	     });
+	 if(urls!=null&&urls.length!==0){
+	     document.getElementById('epg-button').style.display='block'
+	 }
 	 updatePlaylist(channels);
 	 document.getElementById('search-input').style.display='block'
      }
