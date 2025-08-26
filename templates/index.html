@@ -329,7 +329,7 @@
 				$('#tvtable').append('<div id="' + this.defaultID + '" style="display:none">now</div>');
 				this.startTime = new Date(INISet.tableStartTime);
 				this.endTime = new Date(INISet.tableEndTime);
-				$('#' + this.defaultID).width($('#float_titles').width());
+				$('#' + this.defaultID).width($('#ch_title_bar').width());
 				this.ch();
 			}
 		},
@@ -338,7 +338,7 @@
 			if(this.startTime){
 				if((now >= this.startTime) && (this.endTime >= now)){
 //					console.log((now - this.startTime) / 60000);
-					$('#' + this.defaultID).css({top:(now - this.startTime) / 60000 * INISet.dotMin}).show()
+					$('#' + this.defaultID).css({top:(now - this.startTime) / 60000 * INISet.dotMin+48}).show()
 				} else {
 					$('#' + this.defaultID).hide()
 				}
