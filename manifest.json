@@ -1,0 +1,13 @@
+{
+	"short_name": "iptvrec",
+	"name": "iptvrec_app",
+	"display": "standalone",
+	"start_url": "webapp.html?file=./ch.m3u",
+	"icons": [
+		{
+			"src": "imgs/iptvrec.png",
+			"sizes": "500x500",
+			"type": "image/png"
+		}
+	]
+}

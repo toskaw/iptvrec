@@ -1,8 +1,25 @@
 <!doctypehtml>
 <html lang=en>
+<head>
   <meta charset=UTF-8>
   <meta content="width=device-width,initial-scale=1"name=viewport>
   <meta content=no-referrer name=referrer>
+  <link rel="manifest" href="manifest.json">
+  <script>
+    if ('serviceWorker' in navigator) {
+	window.addEventListener('load', () => {
+	    navigator.serviceWorker.register('sw.js').then(registration => {
+		console.log('ServiceWorker registration successful with scope: ', registration.scope);
+	    }, err => {
+		console.log('ServiceWorker registration failed: ', err);
+	    }).catch(err => {
+		console.log(err)
+	    });
+	});
+    }
+  </script>
+</head>
+<body>
   <link href=data:image/x-icon;, rel=icon>
   <link href=https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.15.11/controls.min.css rel=stylesheet>
   <link href=https://dbghelp.github.io/xml-epg.css rel=stylesheet>
@@ -415,3 +432,5 @@ function copyToClipboard(text,name){
 	    })
 }
 </script>
+</body>
+</html>
