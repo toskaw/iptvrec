@@ -107,12 +107,17 @@ foreach( $channel_map as $channel_disc => $channel ) {
 			// $top_time より早く始まっている番組
 			if( toTimestamp($prg['starttime']) <$top_time ) {
 				$height = ((toTimestamp($prg['endtime']) - $top_time ) * $settings->height_per_hour / 3600);
+                if( toTimestamp($prg['endtime']) > $last_time ) {
+                    $height = (($last_time - $top_time) * $settings->height_per_hour / 3600);
+                }
 			}
-			// $last_time より遅く終わる番組
-			if( toTimestamp($prg['endtime']) > $last_time ) {
-				$height = (($last_time - toTimestamp($prg['starttime'])) * $settings->height_per_hour / 3600);
+            else {
+        
+                // $last_time より遅く終わる番組
+                if( toTimestamp($prg['endtime']) > $last_time ) {
+                    $height = (($last_time - toTimestamp($prg['starttime'])) * $settings->height_per_hour / 3600);
+                }
 			}
-			
 			// プログラムを埋める
 			$cat = new DBRecord( CATEGORY_TBL, "id", $prg['category_id'] );
 			$programs[$st]['list'][$num]['category_name'] = $cat->name_en;

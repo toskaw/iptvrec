@@ -1,10 +1,27 @@
 <!doctypehtml>
 <html lang=en>
+<head>
   <meta charset=UTF-8>
   <meta content="width=device-width,initial-scale=1"name=viewport>
   <meta content=no-referrer name=referrer>
+  <link rel="manifest" href="manifest.json">
+  <script>
+    if ('serviceWorker' in navigator) {
+	window.addEventListener('load', () => {
+	    navigator.serviceWorker.register('sw.js').then(registration => {
+		console.log('ServiceWorker registration successful with scope: ', registration.scope);
+	    }, err => {
+		console.log('ServiceWorker registration failed: ', err);
+	    }).catch(err => {
+		console.log(err)
+	    });
+	});
+    }
+  </script>
+</head>
+<body>
   <link href=data:image/x-icon;, rel=icon>
-  <link href=https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.11.2/controls.min.css rel=stylesheet>
+  <link href=https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.15.11/controls.min.css rel=stylesheet>
   <link href=https://dbghelp.github.io/xml-epg.css rel=stylesheet>
   <style>
     body{margin:0;
@@ -37,9 +54,16 @@
     }
     #playlist{
 	width:100%;
+	padding:0px;
     }
     #video-container {
 	height:  auto;
+    }
+    .pinned-channel-box{
+	width: 80px;
+    }
+    .channelBoxName{
+	display:none;
     }
 }
 
@@ -120,6 +144,9 @@
     <button id=fetch-button>
       Load Playlist
     </button>
+    <button id=epg-button onclick=openEPG()>
+      EPG
+    </button>
     <input id=search-input placeholder=Search...>
     <ul id=video-list>
     </ul>
@@ -132,7 +159,7 @@
   </div>
   <div id=epg-container>
   </div>
-  <script src=https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/shaka-player.compiled.js>
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.15.11/shaka-player.compiled.debug.js>
   </script>
   <script src=https://dbghelp.github.io/M3U8Interpreter.js>
   </script>
@@ -252,6 +279,9 @@ response.uri = original.substr(original.indexOf("orig=") + 5);
 	     {
 		 xmlepg.displayAllPrograms('epg-container','xmlepg');
 	     });
+	 if(urls!=null&&urls.length!==0){
+	     document.getElementById('epg-button').style.display='block'
+	 }
 	 updatePlaylist(channels);
 	 document.getElementById('search-input').style.display='block'
      }
@@ -402,3 +432,5 @@ function copyToClipboard(text,name){
 	    })
 }
 </script>
+</body>
+</html>
