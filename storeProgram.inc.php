@@ -176,7 +176,7 @@ function storeProgram( $xmlfile ) {
 
 				$rec->channel_disc = strval($channel_disc);
 				$rec->channel_id = $channel_rec->id;
-				$rec->type = $types[$channel_disc];
+				$rec->type = $types[$rec->channel_disc];
 				$rec->channel = $channel_rec->channel;
 				$rec->title = strval($title);
 				$rec->description = strval($desc);

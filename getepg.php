@@ -53,7 +53,7 @@ foreach( $items as $item) {
         // 新規追加
         $rec = new DBRecord( CHANNEL_TBL );
     }
-    $rec->type = $item["group-title"];
+    $rec->type = array_key_exists("group-title" , $item) ? $item["group-title"] : "GR" ;
     $rec->channel = $item["tvmedia"];
     $rec->channel_disc = $item["tvg-id"];
     $rec->name = $item["tvtitle"];
