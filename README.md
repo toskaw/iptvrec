@@ -6,13 +6,11 @@ epgrecをもとにm3uファイルを読み込んで動作する録画システ�
 
 m3uは自分で探してください
 
-<<<<<<< HEAD
 =======
 ## スクリーンショット
 ![番組表](imgs/table.png)
 ![視聴](imgs/view.png)
 
->>>>>>> refs/remotes/origin/main
 ## 必要なもの
 - PHPが動作するWebサーバー環境
 - mysqlなどのDB
@@ -35,6 +33,14 @@ m3uは自分で探してください
 
 録画済みリストでタイトルをクリックで録画視聴もできます
 
+### ローカル環境で視聴だけ楽しみたい方
+１. webapp.htmlをダウンロード
+2. m3u8ファイルをローカル環境に準備
+3. 1でダウンロードしたwebapp.htmlを開く
+4. ↑ボタンでローカルのm3u8ファイルを読み込み
+5. Load Playlist ボタンをおす
+6. 視聴したいチャンネルを押す
+
 ### CORS PROXY
 チャンネル動画の配信サーバーがCORS対応していない場合は、ブラウザで視聴できません。
 一応、cors proxyは用意してあるので、自己責任で。
@@ -43,6 +49,7 @@ webapp.html
 ```javascript:webapp.html
 const proxy=true;
 ```
+
 
 
 ## 参考にしたもの
