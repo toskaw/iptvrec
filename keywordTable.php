@@ -20,9 +20,6 @@ for( $i=0 ; $i < 25; $i++ ) {
 if( isset($_POST["add_keyword"]) ) {
 	if( $_POST["add_keyword"] == 1 ) {
 		try {
-            if (isset($_SERVER['REMOTE_USER']) && $_SERVER['REMOTE_USER'] == 'guest') {
-                throw new Exception("permission denied");
-            }
 			$rec = new Keyword();
 			$rec->keyword = $_POST['k_search'];
 			$rec->type = $_POST['k_type'];

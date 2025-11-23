@@ -9,9 +9,6 @@ $settings = Settings::factory();
 if( !isset( $_POST['reserve_id'] ) ) {
 	exit("Error: IDが指定されていません" );
 }
-if ($_SERVER['REMOTE_USER'] == 'guest') {
-	exit("Error: permission denied");
-}
 
 $reserve_id = $_POST['reserve_id'];
 

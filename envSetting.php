@@ -4,10 +4,6 @@ require 'vendor/autoload.php';
 include_once(INSTALL_PATH."/Settings.class.php");
 use Smarty\Smarty;
 
-if ($_SERVER['REMOTE_USER'] == 'guest') {
-	exit("permission denied");
-}
-
 $settings = Settings::factory();
 $smarty = new Smarty();
 

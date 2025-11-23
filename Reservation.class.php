@@ -84,10 +84,6 @@ class Reservation {
 				}
 			}
 
-                        if ($_SERVER['REMOTE_USER'] == 'guest') {
-                                throw new Exception("permission denied");
-                        }
-
 			$crec = new DBRecord( CHANNEL_TBL, "id", $channel_id );
 			
 			// 既存予約数 = TUNER番号
@@ -372,9 +368,7 @@ class Reservation {
 			if( $rec == null ) {
 				throw new Exception("IDの指定が無効です");
 			}
-            if (isset($_SERVER['REMOTE_USER']) && $_SERVER['REMOTE_USER'] == 'guest') {
-                                throw new Exception("permission denied");
-                        }
+
 			if( ! $rec->complete ) {
 				// 未実行の予約である
 				if( toTimestamp($rec->starttime) < (time() + PADDING_TIME + $settings->former_time) ) {
