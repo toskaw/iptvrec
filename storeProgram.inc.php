@@ -1,4 +1,8 @@
 <?php
+function utf8_for_xml($string)
+{
+    return preg_replace ('/[^\x{0009}\x{000a}\x{000d}\x{0020}-\x{D7FF}\x{E000}-\x{FFFD}]+/u', ' ', $string);
+}
 
 function garbageClean() {
 	// 不要なプログラムの削除
@@ -44,6 +48,8 @@ function storeProgram( $xmlfile ) {
     }
     $epg = file_get_contents($xmlfile);
     file_put_contents(EPG_XML, $epg);
+    // 使えない文字列を削除
+    $epg = utf8_for_xml($epg); 
 	// XML parse
   	$xml = @simplexml_load_string( $epg );
 	if( $xml === false ) {
