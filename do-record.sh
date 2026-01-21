@@ -13,6 +13,6 @@ if [ ${MODE} -eq 0 ]; then
   $RECORDER -i $CHANNEL -t $DURATION -c copy ${OUTPUT} > /dev/null 
 elif [ ${MODE} -eq 1 ]; then
   $RECORDER -i $CHANNEL -t $DURATION -c copy ${OUTPUT} > /dev/null  
-  /home/tos/bin/comskip --ini=/home/tos/bin/comskip.ini --vaapi -d 255 ${OUTPUT} > /dev/null
+  /home/tos/bin/comskip --ini=/home/tos/bin/comskip.ini -d 255 ${OUTPUT} > /dev/null
 fi
 
