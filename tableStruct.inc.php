@@ -8,7 +8,7 @@ define( "RESERVE_STRUCT",
 	"channel_disc varchar(128) not null default 'none',".			// channel disc
 	"channel_id integer not null  default '0',".					// channel ID
 	"program_id integer not null default '0',".						// Program ID
-	"type varchar(8) not null default 'GR',".						// 種別（GR/BS/CS）
+	"type varchar(64) not null default 'GR',".						// 種別（GR/BS/CS）
 	"channel varchar(512) not null default '0',".					// チャンネル
 	"title varchar(512) not null default 'none',".					// タイトル
 	"description varchar(1024) not null default 'none',".			// 説明 text->varchar
@@ -33,7 +33,7 @@ define( "PROGRAM_STRUCT",
 	"id integer not null auto_increment primary key,".				// ID
 	"channel_disc varchar(128) not null default 'none',".			// channel disc
 	"channel_id integer not null default '0',".						// channel ID
-	"type varchar(8) not null default 'GR',".						// 種別（GR/BS/CS）
+	"type varchar(64) not null default 'GR',".						// 種別（GR/BS/CS）
 	"channel varchar(512) not null default '0',".					// チャンネル
 	"title varchar(512) not null default 'none',".					// タイトル
 	"description varchar(1024) not null default 'none',".			// 説明 text->varchar
@@ -51,7 +51,7 @@ define( "PROGRAM_STRUCT",
 
 define( "CHANNEL_STRUCT",
 	"id integer not null auto_increment primary key,".				// ID
-	"type varchar(8) not null default 'GR',".						// 種別
+	"type varchar(64) not null default 'GR',".						// 種別
 	"channel varchar(512) not null default '0',".					// channel
 	"name varchar(512) not null default 'none',".					// 表示名
 	"channel_disc varchar(128) not null default 'none',".			// 識別用hash
@@ -71,7 +71,7 @@ define( "CATEGORY_STRUCT",
 define( "KEYWORD_STRUCT",
 	"id integer not null auto_increment primary key,".				// ID
 	"keyword varchar(512) not null default '*',".					// 表示名
-	"type varchar(8) not null default '*',".						// 種別
+	"type varchar(64) not null default '*',".						// 種別
 	"channel_id integer not null default '0',".						// channel ID
 	"category_id integer not null default '0',".					// カテゴリID
 	"use_regexp boolean not null default '0',".						// 正規表現を使用するなら1
